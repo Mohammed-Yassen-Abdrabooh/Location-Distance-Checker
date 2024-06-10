@@ -43,6 +43,14 @@ h1,h2 {
   margin-bottom: 20px;
   text-align: center;
 }
+h2 .quote {
+  display: block;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: italic;
+  margin: 10px 0 ;
+  color: #3def66;
+}
 
 
 form {
@@ -72,7 +80,7 @@ button:hover {
   background: #218838;
 }
 
-#message {
+#message,#message2 {
   margin-top: 20px;
   font-size: 18px;
 }

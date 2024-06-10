@@ -1,3 +1,5 @@
+
+// this for enter the two points
 document.getElementById('locationForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -8,14 +10,15 @@ document.getElementById('locationForm').addEventListener('submit', function (eve
   const distance = calculateDistance(targetLat, targetLon, userLat, userLon);
   const messageElement = document.getElementById("message");
   if (distance <= 0.1) {
-    messageElement.textContent = `Success: The distance is ${distance.toFixed(4)} km,which is within 100 meters.`;
+    messageElement.textContent = `Success: The distance is ${distance.toFixed(3) *1000} m,which is within 100 meters.`;
     messageElement.style.color = 'green';
   } else {
-    messageElement.textContent = `Warning: The distance is ${distance.toFixed(4)} km, which is more than 100 meters.`;
+    messageElement.textContent = `Warning: The distance is ${distance.toFixed(3)} km, which is more than 100 meters.`;
     messageElement.style.color = 'red';
   }
 });
 
+// enter only the target point
 document.getElementById('locationForm2').addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -23,21 +26,23 @@ document.getElementById('locationForm2').addEventListener('submit', function (ev
   const userLon = parseFloat(document.getElementById('longitude').value);
 
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
       const currentLat = position.coords.latitude;
       const currentLon = position.coords.longitude;
 
       const distance = calculateDistance(currentLat, currentLon, userLat, userLon);
 
-      const messageElement = document.getElementById('message');
+      const messageElement2 = document.getElementById('message2');
       if (distance <= 0.1) {
-        messageElement.textContent = `Success: The distance is ${distance.toFixed(4)} km,which is within 100 meters.`;;
-        messageElement.style.color = 'green';
+        messageElement2.textContent = `Success: The distance is ${distance.toFixed(3) * 1000} m,which is within 100 meters.`;;
+        messageElement2.style.color = 'green';
       } else {
-        messageElement.textContent = `Warning: The distance is ${distance.toFixed(4)} km, which is more than 100 meters.`;
-        messageElement.style.color = 'red';
+        messageElement2.textContent = `Warning: The distance is ${distance.toFixed(3)} km, which is more than 100 meters.`;
+        messageElement2.style.color = 'red';
       }
-    }, function (error) {
+      },
+      function (error) {
       alert('Error: Unable to retrieve your location.');
     });
   } else {
