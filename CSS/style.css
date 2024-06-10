@@ -12,22 +12,32 @@ section {
   padding: 40px 0;
 }
 
-.container {
+.container1,.container2 {
   background: #fff;
   padding: 20px;
   margin: 0 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  /* text-align: center; */
 }
 .container2{
-    background: #fff;
-      padding: 100px 20px;
-      margin-right: 30px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+  padding: 100px 20px;
+  margin-right: 30px;
 }
 
+@media screen and (max-width:768px) {
+  section{
+    flex-wrap: wrap;
+  }
+  .container1,.container2 {
+    width: 720px;
+  }
+  .container1 {
+    margin-bottom: 30px;
+  }
+  .container2 {
+    padding: 20px;
+  }
+}
 
 h1,h2 {
   margin-bottom: 20px;
